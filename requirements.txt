@@ -1,0 +1,8 @@
+Packages installed
+
+streamlit
+transformers
+torch
+pandas
+matplotlib
+wordcloud
