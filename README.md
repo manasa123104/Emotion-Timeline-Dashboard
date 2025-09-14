@@ -1,14 +1,45 @@
-# Emotion-Timeline-Dashboard
-Emotional Timeline Dashboard is a Streamlit app that analyzes scripts, lyrics, or text with Hugging Face GoEmotions. It visualizes 28 emotions across segments as an interactive timeline, showing how joy, anger, sadness, and more evolve through a story.
+# 🎬 EmotionFlow Timeline
 
-The app offers two input modes:
+Analyze scripts, lyrics, or stories and **visualize how emotions evolve over time**.  
+Built with **Streamlit** (Python) for analysis and an optional **React** viewer for lightweight exploration.
 
-✍️ Paste Text – For short scripts, dialogues, or lyrics
+---
 
-📂 Upload TXT File – For longer documents or collections
+## ✨ Features
+- 📂 **Upload TXT** or ✍️ **Paste Text**
+- 🧩 **Segmentation:** by sentences (bundled) or by word-count chunks
+- 🎚️ **Smoothing** control to reduce noise
+- 📈 **Emotion timeline** (multi-line chart)
+- 🏷️ **Top-K emotions** & per-segment scores
+- ⬇️ **Export CSV** for research or sharing
 
-Users can customize segmentation (by sentences or word count) and apply smoothing to reduce noise. Clear visualizations include multi-line emotion timelines, top-k emotion distributions, and average emotion scores. Results can also be exported as CSV for deeper analysis.
+---
 
-This project demonstrates the fusion of state-of-the-art NLP and data visualization, showing how machine learning can provide insights into creative and cultural domains. Potential use cases include analyzing screenplays, studying albums for mood progression, or assisting writers in tracking emotional impact.
+## 🧠 How it works
+- Text is split into segments (sentences or word chunks)
+- Each segment is scored for multiple emotions
+- Scores are optionally smoothed (moving average)
+- The result is an **interactive timeline** of emotion flow
 
-The dashboard is a practical yet creative project that highlights technical skills, interactive design, and the power of modern NLP to enhance storytelling and research.
+> Back end (Streamlit) can run GoEmotions via Transformers; the React viewer ships with a demo lexicon scorer and can be wired to a real API later.
+
+---
+
+## 🛠️ Tech Stack
+**Python:** Streamlit, Transformers (GoEmotions), PyTorch (CPU), pandas, matplotlib, wordcloud  
+**Web:** React 18 (Vite), Chart.js (react-chartjs-2)
+
+---
+
+## 🚀 Run locally
+
+### Streamlit (analysis)
+```bash
+# in project root
+python -m venv .venv
+# Windows PowerShell:
+. .venv/Scripts/Activate.ps1
+
+pip install --upgrade pip
+pip install -r requirements.txt
+streamlit run app.py
